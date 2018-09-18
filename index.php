@@ -4,8 +4,6 @@ include 'server.php';
 
 $conn = openCon();
 
-echo "Connected Successfully";
-
 ?>
 <!DOCTYPE html>
 

@@ -3,8 +3,8 @@
 $config = [
     'db' => [
         'host' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'dbname' => 'nfq',
+        'username' => 'rytsta',
+        'password' => 'Al0yoomaP5aThahz',
+        'dbname' => 'rytsta',
     ]
 ];
