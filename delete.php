@@ -1,27 +1,26 @@
 <?php //delete order
-    $db = mysqli_connect('localhost','root','','nfq');
-    $deleted = "";
-    if(isset($_GET["id"]))
-    {
 
-        try {
-            $id = $_GET["id"];
-            $sql = "DELETE FROM data WHERE ID = '$id'";
+require_once 'config.php';
 
-            $statement = $db->prepare($sql);
-            $statement->execute();
-            $deleted = true;
+$db = mysqli_connect($config['db']['host'], $config['db']['username'], $config['db']['password'], $config['db']['dbname']);
+$deleted = "";
 
-            header("Location: order.php");
-            echo "User successfully deleted";
+if (isset($_GET["id"])) {
+    try {
+        $id = $_GET["id"];
+        $sql = "DELETE FROM data WHERE ID = '$id'";
 
-        } catch(PDOException $error) {
-            $deleted = false;
-            echo $sql . "<br>" . $error->getMessage();
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        $deleted = true;
 
-        }
-
+        header("Location: order.php");
+        echo "User successfully deleted";
+    } catch (PDOException $error) {
+        $deleted = false;
+        echo $sql . "<br>" . $error->getMessage();
     }
+}
 
 ?>
 
